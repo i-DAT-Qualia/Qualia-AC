@@ -24,3 +24,4 @@ defusedxml
 lxml
 djangorestframework
 djangorestframework-gis
+djangorestframework-jwt
