@@ -1,0 +1,73 @@
+{% load leaflet_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | {{QUALIA_NAME}}</title>
+
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{STATIC_URL}}libs/datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="{{STATIC_URL}}libs/vis/vis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!--<script type="text/javascript" src="{{STATIC_URL}}js/OpenLayers.js"></script>-->
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+
+    <link href="{{STATIC_URL}}css/dashboard.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <img src="{{STATIC_URL}}{{LOGO}}" id="navbar-logo">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-align-justify"></span></button>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-left">
+            {% block nav %}{% endblock %}
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            {% block rightnav %}{% endblock %}
+
+
+        </div>
+        </div>
+    </nav>
+
+{% block alerts %}{% endblock %}
+{% block content %}{% endblock %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}libs/moment/js/moment.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}libs/datepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/sToCaG9wN9U9XWJfd7K2Q.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+        UserVoice.push(['set', {
+          accent_color: '#e23a39',
+          trigger_color: 'white',
+          trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+        }]);
+
+        UserVoice.push(['identify', {
+          email:      '{{user}}',
+        }]);
+
+        UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'bottom-right' }]);
+        UserVoice.push(['autoprompt', {}]);
+    });
+    </script>
+
+    {% block pageScripts %}{% endblock %}
+
+
+
+
+  </body>
+</html>

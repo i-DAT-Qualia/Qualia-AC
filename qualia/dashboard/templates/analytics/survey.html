@@ -1,0 +1,75 @@
+{% extends "dash_base.html" %}
+{% load staticfiles %}
+{% load ui %}
+{% load c3 %}
+{% load leaflet_tags %}
+
+{% block title %}Survey{% endblock %}
+
+{% block nav %}
+    {% show_menu 'Survey' user%}
+{% endblock %}
+
+{% block rightnav %}
+<li><a href="./export/">Export</a></li>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      {% c3_bar_html 'ipadQ1' 'What encouraged you to visit today?'%}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      {% c3_bar_html 'ipadQ2' 'Who did you visit with?'%}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      {% c3_pie_html 'ipadEmail' 'Email Responses'%}
+    </div>
+
+    <div class="col-md-6">
+      {% c3_pie_html 'fq1' 'Was most recent visit'%}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      {% c3_bar_html 'fq2' 'How many times visited?'%}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      {% c3_pie_html 'fq3' 'On Holiday'%}
+    </div>
+
+    <div class="col-md-6">
+      {% c3_pie_html 'fq4' 'Live in the UK'%}
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+{% c3_includes %}
+
+<script type="text/javascript">
+  {% c3_bar_js 'ipadQ1' '/dashboard/analytics/survey/data/q1/' '' %}
+  {% c3_bar_js 'ipadQ2' '/dashboard/analytics/survey/data/q2/' '' %}
+  {% c3_pie_js 'ipadEmail' '/dashboard/analytics/survey/data/email/' '' %}
+  {% c3_pie_js 'fq1' '/dashboard/analytics/survey/data/fq1/' '' %}
+  {% c3_bar_js 'fq2' '/dashboard/analytics/survey/data/fq2/' '' %}
+  {% c3_pie_js 'fq3' '/dashboard/analytics/survey/data/fq3/' '' %}
+  {% c3_pie_js 'fq4' '/dashboard/analytics/survey/data/fq4/' '' %}
+</script>
+{% endblock %}
