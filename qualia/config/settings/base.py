@@ -16,6 +16,7 @@ INSTALLED_APPS = (
     'leaflet',
     #'provider',
     #'provider.oauth2',
+    'artcasting',
     'registration',
     'front',
     'dashboard'
