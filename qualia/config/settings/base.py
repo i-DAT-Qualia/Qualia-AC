@@ -76,5 +76,5 @@ DEFAULT_FROM_EMAIL = "support@qualia.org.uk"
 # Branding settings
 APP_NAME = 'ArtCasting'
 QUALIA_NAME = 'AC'
-LOGO = 'icons/Icon_128.png'
+LOGO = 'icons/Artcasting.jpg'
 FAVICON = 'icons/favicon.ico'
