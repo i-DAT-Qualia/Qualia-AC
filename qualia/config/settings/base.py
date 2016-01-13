@@ -11,6 +11,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'django.contrib.postgres',
+    'rest_framework',
     'tastypie',
     'imagekit',
     'leaflet',
@@ -69,6 +70,11 @@ CACHES = {
         'BACKEND': 'tools.caches.LargeMemcachedCache',
         'LOCATION': '127.0.0.1:11211',
     }
+}
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
 }
 
 DEFAULT_FROM_EMAIL = "support@qualia.org.uk"

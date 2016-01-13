@@ -22,3 +22,4 @@ numpy
 pyzmq
 defusedxml
 lxml
+djangorestframework
