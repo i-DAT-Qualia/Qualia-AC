@@ -16,6 +16,28 @@ class User(RootAC):
     postcode_geolocation = models.PointField(blank=True, null=True)
     # TODO: age - requires ranges from Barker
 
+    age_choices = (
+        ('A', "12 or under"),
+        ('B', "13-15"),
+        ('C', "16-17"),
+        ('D', "18-20"),
+        ('E', "21-23"),
+        ('F', "24-26"),
+        ('G', "27-35"),
+        ('H', "36-45"),
+        ('I', "46-55"),
+        ('J', "56-74"),
+        ('K', "75 or older"),
+        ('N', "No Answer")
+    )
+
+    age = models.CharField(
+        max_length=1,
+        choices=age_choices,
+        default="N"
+    )
+
+
     platform_choices = (
         ('I', 'iOS'),
         ('A', 'Android'),
