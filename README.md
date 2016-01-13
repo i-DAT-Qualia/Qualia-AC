@@ -1,6 +1,8 @@
 # Qualia-AC
 Qualia Engine for the Artcasting Project http://www.artcastingproject.net
 
+Will be used to update Qualia-Core to work with Django 1.9
+
 
 ## Building the Environment
 
