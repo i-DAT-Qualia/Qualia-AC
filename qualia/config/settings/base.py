@@ -87,6 +87,13 @@ REST_FRAMEWORK = {
 
 DEFAULT_FROM_EMAIL = "support@qualia.org.uk"
 
+#registration settings
+
+ACCOUNT_ACTIVATION_DAYS = 30
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+REGISTRATION_OPEN = False
+
 # Branding settings
 APP_NAME = 'ArtCasting'
 QUALIA_NAME = 'AC'
