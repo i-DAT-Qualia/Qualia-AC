@@ -22,3 +22,11 @@ def cast_line_map(request):
     return render_to_response('analytics/maps/casts.html', {
         'casts': Cast.objects.all(),
     }, context_instance=RequestContext(request))
+
+
+@dashboard_level_required
+def postcode_map(request):
+
+    return render_to_response('analytics/maps/postcodes.html', {
+        'users': User.objects.all(),
+    }, context_instance=RequestContext(request))
