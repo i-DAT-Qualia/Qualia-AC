@@ -4,6 +4,12 @@ from django.db import models
 from django.contrib.gis.db import models
 import uuid
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+from lib import PostCodeClient
+from django.contrib.gis.geos import Point
+import json
 
 class RootAC(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -54,6 +60,21 @@ class User(RootAC):
 
     def __unicode__(self):
         return str(self.id)
+
+
+@receiver(post_save, sender=User)
+def getPostcodeGeolocation(sender, instance, **kwargs):
+    client = PostCodeClient()
+
+    if not instance.postcode_geolocation:
+        if instance.postcode:
+            if json.loads(client.validatePostCode(instance.postcode))['result']:
+                postcode = json.loads(client.getLookupPostCode(instance.postcode))
+                instance.postcode_geolocation = Point(
+                    postcode['result']['longitude'],
+                    postcode['result']['latitude']
+                )
+                instance.save()
 
 
 class Cast(RootAC):

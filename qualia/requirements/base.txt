@@ -25,3 +25,4 @@ lxml
 djangorestframework
 djangorestframework-gis
 djangorestframework-jwt
+postcode.io==0.1.1
