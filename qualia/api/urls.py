@@ -5,6 +5,7 @@ from api.artcasting.views import *
 router = routers.DefaultRouter()
 router.register(r'user', UserViewSet)
 router.register(r'cast', CastViewSet)
+router.register(r'artwork', ArtworkViewSet)
 
 
 # Wire up our API using automatic URL routing.

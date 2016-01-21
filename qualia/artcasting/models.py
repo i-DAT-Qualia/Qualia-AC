@@ -50,6 +50,8 @@ class User(RootAC):
         blank=True
     )
 
+    encounters = models.IntegerField(default=0)
+
     def __unicode__(self):
         return str(self.id)
 
@@ -67,3 +69,13 @@ class Cast(RootAC):
 
     def __unicode__(self):
         return str(self.id)
+
+
+class Artwork(RootAC):
+    asset_name = models.CharField(max_length=250, unique=True)
+    full_name = models.CharField(max_length=250, blank=True)
+    artist_name = models.CharField(max_length=250, blank=True)
+    year_produced = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return str(self.asset_name)

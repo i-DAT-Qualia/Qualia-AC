@@ -4,13 +4,18 @@ from rest_framework_gis.serializers import GeometryField
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-        postcode_geolocation = GeometryField()
+        #postcode_geolocation = GeometryField()
 
         class Meta:
             model = User
+            exclude = ('postcode_geolocation',)
 
 class CastSerializer(serializers.HyperlinkedModelSerializer):
         destination = GeometryField()
         origin = GeometryField()
         class Meta:
             model = Cast
+
+class ArtworkSerializer(serializers.HyperlinkedModelSerializer):
+        class Meta:
+            model = Artwork
