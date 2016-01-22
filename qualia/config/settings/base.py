@@ -96,6 +96,6 @@ REGISTRATION_OPEN = False
 
 # Branding settings
 APP_NAME = 'ArtCasting'
-QUALIA_NAME = 'AC'
+QUALIA_NAME = 'Qualia AC'
 LOGO = 'icons/Artcasting.jpg'
 FAVICON = 'icons/favicon.ico'
