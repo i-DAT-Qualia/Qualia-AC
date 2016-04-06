@@ -90,6 +90,17 @@ class Cast(RootAC):
 
     sender = models.ForeignKey(User, null=True)
 
+    artwork_name = models.CharField(max_length=250, blank=True)
+    recast_count = models.IntegerField(blank=True, null=True)
+
+    time = models.DateTimeField(blank=True, null=True)
+    year = models.IntegerField(blank=True, null=True)
+    month = models.IntegerField(blank=True, null=True)
+    day = models.IntegerField(blank=True, null=True)
+
+    here_before = models.NullBooleanField(default=None)
+    user_url = models.URLField(blank=True)
+
     def __unicode__(self):
         return str(self.id)
 
