@@ -88,6 +88,8 @@ class Cast(RootAC):
     needs_review = models.NullBooleanField(default=None)
     arrival = models.DateTimeField(blank=True)
 
+    sender = models.ForeignKey(User, null=True)
+
     def __unicode__(self):
         return str(self.id)
 
