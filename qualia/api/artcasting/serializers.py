@@ -13,6 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class CastSerializer(serializers.HyperlinkedModelSerializer):
         destination = GeometryField()
         origin = GeometryField()
+        tags = serializers.ListField()
         class Meta:
             model = Cast
 

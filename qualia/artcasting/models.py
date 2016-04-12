@@ -11,6 +11,8 @@ from lib import PostCodeClient
 from django.contrib.gis.geos import Point
 import json
 
+from django.contrib.postgres.fields import ArrayField
+
 class RootAC(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     added = models.DateTimeField(auto_now_add=True)
@@ -99,6 +101,9 @@ class Cast(RootAC):
 
     here_before = models.NullBooleanField(default=None)
     user_url = models.URLField(blank=True)
+
+    tags = ArrayField(models.CharField(max_length=250), blank=True, null=True)
+
 
     def __unicode__(self):
         return str(self.id)
