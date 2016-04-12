@@ -25,3 +25,13 @@ DATABASES = {
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/static/'
+
+INSTALLED_APPS += (
+    'corsheaders',
+)
+
+MIDDLEWARE_CLASSES += (
+    'corsheaders.middleware.CorsMiddleware',
+)
+
+CORS_ORIGIN_ALLOW_ALL = True
